@@ -281,8 +281,11 @@ ul.stories{
 
   .search-form{
     position: relative;
-    float: left;
     width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
     margin-bottom: 14px;
     label{
       font-size: 10pt;

@@ -1,3 +1,9 @@
+## Installation
+
+1. Clone the repo.
+2. `cd` into the cloned repo and run `npm install`.
+3. Once done run `npm start` to see project.
+
 ## Available Scripts
 
 In the project directory, you can run:
