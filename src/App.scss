@@ -1,0 +1,311 @@
+@import './styles/reset.scss';
+
+@mixin tabletDown(){
+  @media(max-width: '768px'){
+    @content;
+  }
+}
+
+@mixin mobileDown(){
+  @media(max-width: '425px'){
+    @content;
+  }
+}
+
+*{
+  box-sizing: border-box !important;
+  -o-box-sizing: border-box !important;
+  -ms-box-sizing: border-box !important;
+  -moz-box-sizing: border-box !important;
+  -webkit-box-sizing: border-box !important;
+}
+
+body{
+  padding: 8px 10%;
+  font-family: 'Roboto', sans-serif;
+  box-sizing: border-box !important;
+  -o-box-sizing: border-box !important;
+  -ms-box-sizing: border-box !important;
+  -moz-box-sizing: border-box !important;
+  -webkit-box-sizing: border-box !important;
+
+  @include mobileDown {
+    padding: 0px 0px !important;
+  }
+
+  a{ 
+    color: #000000;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:visited{
+      color: #828282;
+    }
+  }
+}
+
+.app{
+  position: relative;
+  clear: both;
+  margin: 0 auto;
+  max-width: 1414px;
+
+  @include mobileDown {
+    padding: 0px 0px !important;
+    float: left;
+    clear: none;
+    margin: 0px 0px;
+    width: 100%;
+    max-width: initial;
+  }
+
+  >.inner{
+    position: relative;
+    float: left;
+    width: 100%;
+    background-color: rgb(246, 246, 239);
+  }
+}
+
+.app-header{
+  position: relative;
+  float: left;
+  width: 100%;
+  background-color: rgb(255, 102, 0);
+  height: 24px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px 2px;
+
+  @include mobileDown(){
+    padding-top: 6px;
+    padding-bottom: 6px;
+    height: initial;
+  }
+
+  .brand{
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 5px;
+
+    img.logo{
+      width: 20px;
+      height: 20px;
+      border: solid 1px #ffffff;
+      margin-right: 4px;
+    }
+  }
+
+  .nav-list-container{
+    position: relative;
+    float: left;
+    width: 100%;
+    @include mobileDown{
+      width: 100%;
+    }
+  }
+
+  span.name{
+    position: relative;
+    float: left;
+    font-weight: 900;
+    font-size: 15px;
+    margin-right: 10px;
+  }
+
+  .nav-list{
+    position: relative;
+    float: left;
+    list-style: none;
+    margin: 0px 0px;
+    padding: 0px 0px;
+    height: 16px;
+    @include mobileDown(){
+      height: initial;
+    }
+
+    >li{
+      position: relative;
+      display: inline-block;
+      margin-right: 7px;
+      &:first-child{
+        a{ padding-left: 0px; }
+      }
+      &:last-child{
+        a{ border-right: none; }
+      }
+      >a{
+        display: inline-block;
+        border-right: solid 1px #000000;
+        padding-right: 7px;
+        font-size: 14px;
+        cursor: pointer;
+
+        @include mobileDown{
+          font-size: 12px
+        }
+      }
+    }
+  }
+
+  .login-button{
+    font-size: 14px;
+    margin-right: 4px;
+    cursor: pointer;
+  }
+}
+
+ul.stories{
+  position: relative;
+  float: left;
+  width: 100%;
+  list-style: none;
+  >li.story-item{
+    position: relative;
+    float: left;
+    width: 100%;
+    padding: 5px 10px;
+    &:first-child{ padding-top: 10px; }
+    &:last-child{ padding-top: 10px; }
+
+    >section{
+      display: flex;
+      flex-direction: row;
+    }
+
+    .number{
+      width: 20px;
+      font-size: 10pt;
+      color: #828282;
+    }
+
+    .upvote-button{
+      display: block;
+      background: url('./assets/grayarrow2x.gif') center center no-repeat;
+      background-size: contain;
+      border: none;
+      outline: none !important;
+      width: 11px;
+      height: 11px;
+      margin-right: 5px;
+      cursor: pointer;
+    }
+
+    .title{
+      display: inline;
+      font-size: 10pt;
+      margin-right: 5px
+    }
+
+    .source-domain{
+      display: inline;
+      color: #828282;
+      font-size: 8pt;
+      &:hover{
+        >span{
+          text-decoration: underline;
+        }
+      }
+    }
+
+    >ul.meta-info{
+      position: relative;
+      float: left;
+      list-style: none;
+      margin-top: 3px;
+      padding-left: 37px;
+      >li{
+        &:last-child{
+          margin-right: 0px;
+        }
+        display: inline-block;
+        margin-right: 5px;
+  
+        span, a, button{
+          font-size: 9pt;
+          color: #828282;
+        }
+  
+        a:hover, button:hover{
+          text-decoration: underline;
+        }
+  
+        button{
+          cursor: pointer;
+          background: none !important;
+          border: none !important;
+          outline: none !important;
+          padding: 0px 0px !important;
+        }
+      }
+    }
+  }
+}
+
+.more-link{
+  display: inline-block;
+  margin: 16px 47px 8px;
+}
+
+.app-footer{
+  position: relative;
+  float: left;
+  width: 100%;
+  border-top: solid 2px rgb(255, 102, 0);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .nav-list{
+    position: relative;
+    float: left;
+    margin-bottom: 14px;
+    margin-top: 24px;
+    text-align: center;
+
+    >li{
+      display: inline-block;
+      &:last-child{
+        a{ border-right: none; }
+      }
+      
+      a{
+        border-right: solid 1px #828282;
+        padding: 0px 8px;
+        font-size: 12px;
+      }
+    }
+  }
+
+  .search-form{
+    position: relative;
+    float: left;
+    width: 100%;
+    margin-bottom: 14px;
+    label{
+      font-size: 10pt;
+      color: #828282;
+      margin-right: 5px;
+    }
+
+    @include mobileDown{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      label{
+        position: relative;
+        float: left;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 5px;
+      }
+      input[type="text"]{
+        position: relative;
+        float: left;
+        width: 80%;
+      }
+    }
+  }
+}
